@@ -16,6 +16,7 @@ def PesoWi(posicion,numIntervalos):
     else:
         return 4
 
+
 def IntegrarSimpson(limiteInferior, limiteSuperior, numIntervalos):
     """
     Recibe los límites de integración y el número de intervalos a utilizar en la aproximación
@@ -31,12 +32,15 @@ def IntegrarSimpson(limiteInferior, limiteSuperior, numIntervalos):
     integral = (espaciamiento * sumatoria) / 3
     return integral
 
+
 def F(x):
     """
     Recibe x
     Devuelve el valor de f(x), esto es x evaluado en la función a integrar
     """
     return 0.005*x + 0.5
+
+
 
 def main():
     limiteInferior = 0
