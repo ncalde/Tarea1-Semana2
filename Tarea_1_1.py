@@ -1,23 +1,26 @@
-import numpy as np
+#Importación de librerías
+
 import scipy.integrate
 
-def PesoWi(i,numIntervalos):
+#Definición de funciones
+
+def PesoWi(posicion,numIntervalos):
     """
+    Recibe la posición del punto y el número de intervalos (número de puntos + 1)
     Devuelve el peso de cada término de la sumatoria que utiliza Simpson
-    Los extremos tienen un peso igual a 1
-    Los valores intermedios tienen un peso igual a 2 si son múltiplos de 2 y un peso de 4 en caso contrario
     """
-    if i == 0 or i == (numIntervalos):
+    if posicion == 0 or posicion == (numIntervalos):
         return 1
-    elif (i % 2) == 0:
+    elif (posicion % 2) == 0:
         return 2
     else:
         return 4
 
-def IntegrarSimpson38(limiteInferior, limiteSuperior, numIntervalos):
+def IntegrarSimpson(limiteInferior, limiteSuperior, numIntervalos):
     """
     Recibe los límites de integración y el número de intervalos a utilizar en la aproximación
     Aproxima una integral definida con el método Simpson
+        numIntervalos debe ser un número natural múltiplo de 3
     """
     sumatoria = 0.0
     espaciamiento = (limiteSuperior - limiteInferior) / numIntervalos
@@ -29,7 +32,7 @@ def IntegrarSimpson38(limiteInferior, limiteSuperior, numIntervalos):
 
 def F(x):
     """
-    Devuelve el valor de f(x), x evaluado en la función a integrar
+    Devuelve el valor de f(x), esto es x evaluado en la función a integrar
     """
     return 0.005*x + 0.5
 
@@ -38,7 +41,7 @@ def main():
     limiteSuperior = 100
     numIntervalos = [3, 9, 27, 81, 243]
     for i in numIntervalos:
-        integralSimpson = IntegrarSimpson38(limiteInferior, limiteSuperior, i)
+        integralSimpson = IntegrarSimpson(limiteInferior, limiteSuperior, i)
         # Se va a utilizar la función scipy.integrate para obtener el valor exacto de la integral y calcular el error
         integralScipy, errorScipy = scipy.integrate.quad(F, limiteInferior, limiteSuperior)
         error = (integralScipy - integralSimpson) * 100 / integralScipy
