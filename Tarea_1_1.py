@@ -20,7 +20,7 @@ def PesoWi(posicion,numIntervalos):
 def IntegrarSimpson(limiteInferior, limiteSuperior, numIntervalos):
     """
     Recibe los límites de integración y el número de intervalos a utilizar en la aproximación
-        numIntervalos debe ser un número natural múltiplo de 3
+        numIntervalos debe ser un número natural múltiplo de 2
     Aproxima una integral definida con el método Simpson
     """
     sumatoria = 0.0
@@ -45,7 +45,7 @@ def F(x):
 def main():
     limiteInferior = 0
     limiteSuperior = 100
-    numIntervalos = [3, 9, 27, 81, 243]
+    numIntervalos = [2, 4, 8, 16, 32]
     #Se llama a la función integrarSimpson con 5 valores distintos para numIntervalos
     for i in numIntervalos:
         integralSimpson = IntegrarSimpson(limiteInferior, limiteSuperior, i)
