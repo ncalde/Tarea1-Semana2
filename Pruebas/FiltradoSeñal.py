@@ -12,11 +12,11 @@ def main():
 
     puntosTiempo = np.linspace(0, deltaT, nPuntos)
 
-    frec_1 = 50
+    frec_1 = 75
     magnitud_1 = 25
 
-    frec_2 = 150
-    magnitud_2 = 25
+    frec_2 = 250
+    magnitud_2 = 40
 
     # Señales
     señal1 = magnitud_1*np.sin(2*np.pi*frec_1*puntosTiempo)
